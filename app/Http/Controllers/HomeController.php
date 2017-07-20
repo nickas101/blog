@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,7 @@ class HomeController extends Controller
     {
         $params = [
             'posts' => Post::all(),
+            'user' => Auth::user(),
         ];
 
         return view('home', $params);
